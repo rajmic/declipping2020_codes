@@ -31,14 +31,14 @@ One main file could run one or more algorithms. The algorithm is chosen with the
 This setting applies to:
      - main_l1_relaxation.m
           * in "param.algorithm" select 'DR' for the Douglas-Rachford algorithm (synthesis model) or 'CP' for the Chambolle-Pock algorithm (analysis model);
-	        * in "param.reweighting" select "1" for reweighting of the coefficients (Rl1CC algorithms);
-	        * in "param.weighting" select "1" for parabola weighting of the coefficients
-    - main_csl1.m;
-	        * in "param.algorithm" select 'csl1' for the non-weighted variant, 'pcsl1' for the psychoacoustically weighted variant and 'pwcsl1' for the parabola-weighted variant;
+          * in "param.reweighting" select "1" for reweighting of the coefficients (Rl1CC algorithms);
+          * in "param.weighting" select "1" for parabola weighting of the coefficients
+     - main_csl1.m;
+          * in "param.algorithm" select 'csl1' for the non-weighted variant, 'pcsl1' for the psychoacoustically weighted variant and 'pwcsl1' for the parabola-weighted variant;
      - main_Social_Sparsity.m
-	        * in "shrinkage" select 'EW' for Empirical Wiener and 'PEW' for Persistent Empirical Wiener 
+          * in "shrinkage" select 'EW' for Empirical Wiener and 'PEW' for Persistent Empirical Wiener 
      - main_SPADE.m
-	        * in "param.algorithm" select 'aspade' for the analysis variant of SPADE and 'sspade_new' for the (proper) synthesis variant of SPADE
+          * in "param.algorithm" select 'aspade' for the analysis variant of SPADE and 'sspade_new' for the (proper) synthesis variant of SPADE
 
 The other main files (with SQAM suffix) can be run to reproduce the results from the paper -- it declipps all ten audio files with the seven input distortion levels used (70 combinations in total). Note that such computation can be time consuming.
 

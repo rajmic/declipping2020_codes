@@ -20,7 +20,8 @@ To use this declipping toolbox, just download all the files, add them to the MAT
 
 The toolbox is organized into several subfolders:
      - "Evaluation_algorithms" contains the PEAQ method used in the paper to evaluate the objective quality of restoration. Unfortunately, PEMO-Q (also used in the paper) cannot be made part of the repository due to copyright issues.
-     - "Methods" contains all the algorithms used in the extensive evaluation except for the NMF-based method (not publicly available). 
+     - "Methods" contains all the algorithms used in the extensive evaluation except for the NMF-based method (not publicly available).
+     - "Numerical_results" contains ".mat" files with numerical results based on five different metrics (dSDR computed on the whole signal - dSDR_all, dSDR computed on the clipped samples only - dSDR_clipped, PEAQ, PEMO-Q, and Rnonlin). Suffix "RR" denotes replacing the reliable samples of the restored signals before evaluation. The specific values are arranged in a matrix, where rows represent individual audio excerpts, and columns represent input SDR values.     
      - "Sounds" contains wav-files used for testing and a mat file with the testing signals "Sound_database.mat"
      - "Tools" contains auxiliary methods for clipping the signal and computing the SDR
 
@@ -83,46 +84,54 @@ References
 %%%%%%%%%%
 
 A. Adler, V. Emiya, M. Jafari, M. Elad, R. Gribonval, and M. Plumbley,
-“A constrained matching pursuit approach to audio declipping,” in IEEE
-ICASSP, 2011, pp. 329–332.
+“A constrained matching pursuit approach to audio declipping,” 
+in 2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 
+May 2011, pp. 329-332.
 
-S. Kitić, N. Bertin, and R. Gribonval, “Sparsity and cosparsity for audio
-declipping: a flexible non-convex approach,” in LVA/ICA 2015, Liberec,
-Czech Republic, Aug. 2015.
+S. Kitić, N. Bertin, and R. Gribonval, 
+“Sparsity and cosparsity for audio declipping: a flexible non-convex approach,” 
+in 12th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA), 
+Aug. 2015, pp. 243&#8211;250.
 
-P. Záviška, P. Rajmic, O. Mokrý, and Z. Průša, “A proper version
-of synthesis-based sparse audio declipper,” in 2019 IEEE ICASSP,
-Brighton, UK, May 2019, pp. 591–595.
+P. Záviška, P. Rajmic, O. Mokrý, and Z. Průša, 
+“A proper version of synthesis-based sparse audio declipper,”
+in 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP),
+May 2019, pp. 591&#8211;595.
 
-P. Rajmic, P. Záviška, V. Veselý, and O. Mokrý, “A new generalized
-projection and its application to acceleration of audio declipping,”
-Axioms, vol. 8, no. 3, Sep. 2019.
+P. Rajmic, P. Záviška, V. Veselý, and O. Mokrý, 
+“A new generalized projection and its application to acceleration of audio declipping,”
+Axioms, 
+vol. 8, no. 3, 2019.
 
-A. J. Weinstein and M. B. Wakin, “Recovering a clipped signal in
-sparseland,” Sampling Theory in Signal and Image Processing, vol. 12,
-no. 1, pp. 55–69, 2013.
+A. J. Weinstein and M. B. Wakin, 
+“Recovering a clipped signal in sparseland,” 
+Sampling Theory in Signal and Image Processing, 
+vol. 12, no. 1, pp. 55-69, 2013.
 
-K. Siedenburg, M. Kowalski, and M. Dorfler, “Audio declipping with
-social sparsity,” in Acoustics, Speech and Signal Processing (ICASSP),
-2014 IEEE International Conference on. IEEE, 2014, pp. 1577–1581.
+K. Siedenburg, M. Kowalski, and M. Dorfler, 
+“Audio declipping with social sparsity,” 
+in 2014 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 
+May 2014, pp. 1577-1581.
 
-B. Defraene, N. Mansour, S. D. Hertogh, T. van Waterschoot, M. Diehl,
-and M. Moonen, “Declipping of audio signals using perceptual compressed
-sensing,” IEEE Transactions on Audio, Speech, and Language
-Processing, vol. 21, no. 12, pp. 2627–2637, Dec 2013.
+B. Defraene, N. Mansour, S. D. Hertogh, T. van Waterschoot, M. Diehl, and M. Moonen, 
+“Declipping of audio signals using perceptual compressed sensing,” 
+IEEE Transactions on Audio, Speech, and Language Processing, 
+vol. 21, no. 12, pp. 2627-2637, 2013.
 
-P. Záviška, P. Rajmic, and J. Schimmel, “Psychoacoustically motivated
-audio declipping based on weighted l1 minimization,” in 2019 42nd
-International Conference TSP, July 2019, pp. 338–342.
+P. Záviška, P. Rajmic, and J. Schimmel, 
+“Psychoacoustically motivated audio declipping based on weighted l1 minimization,” 
+in 2019 42nd International Conference on Telecommunications and Signal Processing (TSP), 
+July 2019, pp. 338-342.
 
-L. Rencker, F. Bach, W. Wang, and M. D. Plumbley, “Consistent
-dictionary learning for signal declipping,” in Latent Variable Analysis
-and Signal Separation. Springer International Publishing, 2018.
+L. Rencker, F. Bach, W. Wang, and M. D. Plumbley, 
+“Consistent dictionary learning for signal declipping,” 
+in 14th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA). 
+July 2018, pp. 446-455.
 
-A. J. E. M. Janssen, R. N. J. Veldhuis, and L. B. Vries, “Adaptive
-interpolation of discrete-time signals that can be modeled as autoregressive
-processes,” IEEE Trans. Acoustics, Speech and Signal Processing,
-vol. 34, no. 2, pp. 317–330, 4, 1986.
+A. J. E. M. Janssen, R. N. J. Veldhuis, and L. B. Vries, 
+“Adaptive interpolation of discrete-time signals that can be modeled as autoregressive processes,” 
+IEEE Transactions on Acoustics, Speech, and Signal Processing, 
+vol. 34, no. 2, pp. 317-330, 1986.
 
 
 --------------------------------------------------

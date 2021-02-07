@@ -1,12 +1,13 @@
 
-A survey and an extensive evaluation of popular audio declipping methods
+A Survey and an Extensive Evaluation of Popular Audio Declipping Methods
 ========================================================================
 [Pavel Záviška](https://orcid.org/0000-0003-2221-2058), [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442), [Alexey Ozerov](https://orcid.org/0000-0002-7602-4610) and [Lucas Rencker](https://orcid.org/0000-0002-9332-6602)
 ------------------------------------------------------------------------
 
 
 This readme file describes the MATLAB toolbox accompanying the article from the title.
-
+Published version of the article is available at https://ieeexplore.ieee.org/document/9281027.
+Postprint is also available at https://arxiv.org/abs/2007.07663.
 
 ### Requirements
 The code has been developed in MATLAB version R2019b and has been tested in R2019b and R2020a. 
@@ -56,10 +57,10 @@ https://rajmic.github.io/declipping2020/
 ### How to cite this toolbox
 Please cite the following paper:
 
-P. Záviška, P. Rajmic, A. Ozerov, and L. Rencker:
-A survey and an extensive evaluation of popular audio declipping methods.
-Submitted to IEEE Journal of Selected Topics in Signal Processing (2020).
-Available at https://arxiv.org/abs/2007.07663.
+P. Záviška, P. Rajmic, A. Ozerov and L. Rencker, 
+“A Survey and an Extensive Evaluation of Popular Audio Declipping Methods,” 
+IEEE Journal of Selected Topics in Signal Processing, 
+vol.&nbsp;15, no.&nbsp;1, pp.&nbsp;5&#8211;24, Jan.&nbsp;2021, doi: 10.1109/JSTSP.2020.3042071.
 
 ### License
 The code of this toolbox is distributed under the terms of the GNU Public License version 3 (http://www.gnu.org/licenses/gpl.txt).
@@ -68,51 +69,51 @@ The code of this toolbox is distributed under the terms of the GNU Public Licens
 - A. Adler, V. Emiya, M. Jafari, M. Elad, R. Gribonval, and M. Plumbley,
 “A constrained matching pursuit approach to audio declipping,” 
 in *2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 
-May 2011, pp. 329&#8211;332.
+May 2011, pp.&nbsp;329&#8211;332.
 
 - S. Kitić, N. Bertin, and R. Gribonval, 
 “Sparsity and cosparsity for audio declipping: a flexible non-convex approach,” 
 in *12th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA)*, 
-Aug. 2015, pp. 243&#8211;250.
+Aug.&nbsp;2015, pp.&nbsp;243&#8211;250.
 
 - P. Záviška, P. Rajmic, O. Mokrý, and Z. Průša, 
 “A proper version of synthesis-based sparse audio declipper,”
 in *2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*,
-May 2019, pp. 591&#8211;595.
+May&nbsp;2019, pp.&nbsp;591&#8211;595.
 
 - P. Rajmic, P. Záviška, V. Veselý, and O. Mokrý, 
 “A new generalized projection and its application to acceleration of audio declipping,”
-*Axioms*, vol. 8, no. 3, 2019.
+*Axioms*, vol.&nbsp;8, no.&nbsp;3, 2019.
 
 - A. J. Weinstein and M. B. Wakin, 
 “Recovering a clipped signal in sparseland,” 
 *Sampling Theory in Signal and Image Processing*, 
-vol. 12, no. 1, pp. 55&#8211;69, 2013.
+vol.&nbsp;12, no.&nbsp;1, pp.&nbsp;55&#8211;69, 2013.
 
 - K. Siedenburg, M. Kowalski, and M. Dorfler, 
 “Audio declipping with social sparsity,” 
 in *2014 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)*, 
-May 2014, pp. 1577&#8211;1581.
+May&nbsp;2014, pp.&nbsp;1577&#8211;1581.
 
 - B. Defraene, N. Mansour, S. D. Hertogh, T. van Waterschoot, M. Diehl, and M. Moonen, 
 “Declipping of audio signals using perceptual compressed sensing,” 
 *IEEE Transactions on Audio, Speech, and Language Processing*, 
-vol. 21, no. 12, pp. 2627&#8211;2637, 2013.
+vol.&nbsp;21, no.&nbsp;12, pp.&nbsp;2627&#8211;2637, 2013.
 
 - P. Záviška, P. Rajmic, and J. Schimmel, 
 “Psychoacoustically motivated audio declipping based on weighted l1 minimization,” 
 in *2019 42nd International Conference on Telecommunications and Signal Processing (TSP)*, 
-July 2019, pp. 338&#8211;342.
+July 2019, pp.&nbsp;338&#8211;342.
 
 - L. Rencker, F. Bach, W. Wang, and M. D. Plumbley, 
 “Consistent dictionary learning for signal declipping,” 
 in *14th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA)*. 
-July 2018, pp. 446&#8211;455.
+July 2018, pp.&nbsp;446&#8211;455.
 
 - A. J. E. M. Janssen, R. N. J. Veldhuis, and L. B. Vries, 
 “Adaptive interpolation of discrete-time signals that can be modeled as autoregressive processes,” 
 *IEEE Transactions on Acoustics, Speech, and Signal Processing*, 
-vol. 34, no. 2, pp. 317&#8211;330, 1986.
+vol.&nbsp;34, no.&nbsp;2, pp.&nbsp;317&#8211;330, 1986.
 
 
 --------------------------------------------------

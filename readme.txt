@@ -1,10 +1,12 @@
 
-A SURVEY AND AN EXTENSIVE EVALUATION OF POPULAR AUDIO DECLIPPING METHODS
+A Survey and an Extensive Evaluation of Popular Audio Declipping Methods
 
 Pavel Záviška, Pavel Rajmic, Alexey Ozerov and Lucas Rencker
 ------------------------------------------------------------------------
 
 This readme file describes the MATLAB toolbox accompanying the article from the title.
+Published version of the article is available at https://ieeexplore.ieee.org/document/9281027.
+Postprint is also available at https://arxiv.org/abs/2007.07663.
 
 %%%%%%%%%%%%
 Requirements
@@ -67,10 +69,10 @@ https://rajmic.github.io/declipping2020/
 How to cite this toolbox
 %%%%%%%%%%%%%%%%%%%%%%%%
 Please cite the following paper:
-P. Záviška, P. Rajmic, A. Ozerov, and L. Rencker:
-A survey and an extensive evaluation of popular audio declipping methods.
-Submitted to IEEE Journal of Selected Topics in Signal Processing (2020).
-Available at https://arxiv.org/abs/2007.07663
+P. Záviška, P. Rajmic, A. Ozerov and L. Rencker, 
+“A Survey and an Extensive Evaluation of Popular Audio Declipping Methods,” 
+IEEE Journal of Selected Topics in Signal Processing, 
+vol. 15, no. 1, pp. 5-24, Jan. 2021, doi: 10.1109/JSTSP.2020.3042071.
 
 
 %%%%%%%
@@ -91,12 +93,12 @@ May 2011, pp. 329-332.
 S. Kitić, N. Bertin, and R. Gribonval, 
 “Sparsity and cosparsity for audio declipping: a flexible non-convex approach,” 
 in 12th International Conference on Latent Variable Analysis and Signal Separation (LVA/ICA), 
-Aug. 2015, pp. 243&#8211;250.
+Aug. 2015, pp. 243-250.
 
 P. Záviška, P. Rajmic, O. Mokrý, and Z. Průša, 
 “A proper version of synthesis-based sparse audio declipper,”
 in 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP),
-May 2019, pp. 591&#8211;595.
+May 2019, pp. 591-595.
 
 P. Rajmic, P. Záviška, V. Veselý, and O. Mokrý, 
 “A new generalized projection and its application to acceleration of audio declipping,”

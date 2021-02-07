@@ -6,7 +6,7 @@ A Survey and an Extensive Evaluation of Popular Audio Declipping Methods
 
 
 This readme file describes the MATLAB toolbox accompanying the article from the title.\
-Published version of the article is available at https://ieeexplore.ieee.org/document/9281027.\
+Published version of the article is available at https://ieeexplore.ieee.org/document/9281027. \
 Postprint is also available at https://arxiv.org/abs/2007.07663.
 
 ### Requirements

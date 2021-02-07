@@ -59,7 +59,7 @@ Please cite the following paper:
 
 P. Záviška, P. Rajmic, A. Ozerov and L. Rencker, 
 “A Survey and an Extensive Evaluation of Popular Audio Declipping Methods,” 
-IEEE Journal of Selected Topics in Signal Processing, 
+*IEEE Journal of Selected Topics in Signal Processing*, 
 vol.&nbsp;15, no.&nbsp;1, pp.&nbsp;5&#8211;24, Jan.&nbsp;2021, doi: 10.1109/JSTSP.2020.3042071.
 
 ### License

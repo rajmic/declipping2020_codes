@@ -9,6 +9,9 @@ This readme file describes the MATLAB toolbox accompanying the article from the 
 Published version of the article is available at https://ieeexplore.ieee.org/document/9281027. \
 Postprint is also available at https://arxiv.org/abs/2007.07663.
 
+Along with the audio declipping survey, the toolbox also contains source codes to the letter called Audio declipping performance enhancement via crossfading. 
+See details [below](#Audio Declipping Performance Enhancement via Crossfading).
+
 ### Requirements
 The code has been developed in MATLAB version R2019b and has been tested in R2019b and R2020a. 
 Several methods rely on the LTFAT toolbox (version 2.4.0 used) and Constrained OMP (C-OMP) relies on the CVX toolbox (version 2.2).
@@ -32,7 +35,7 @@ This setting applies to:
       * in `param.algorithm` select `'DR'` for the Douglas-Rachford algorithm (synthesis model) or `'CP'` for the Chambolle-Pock algorithm (analysis model);
       * in `param.reweighting` select "1" for reweighting of the coefficients (Rl1CC algorithms);
       * in `param.weighting` select "1" for parabola weighting of the coefficients
-   - main_csl1.m;
+   - main_csl1.m
       * in `param.algorithm` select `'csl1'` for the non-weighted variant, `'pcsl1'` for the psychoacoustically weighted variant and `'pwcsl1'` for the parabola-weighted variant;
    - main_Social_Sparsity.m
       * in `shrinkage` select `'EW'` for Empirical Wiener and `'PEW'` for Persistent Empirical Wiener 
@@ -115,6 +118,57 @@ July 2018, pp.&nbsp;446&#8211;455.
 *IEEE Transactions on Acoustics, Speech, and Signal Processing*, 
 vol.&nbsp;34, no.&nbsp;2, pp.&nbsp;317&#8211;330, 1986.
 
+--------------------------------------------------
+
+Audio Declipping Performance Enhancement via Crossfading  
+========================================================================
+[Pavel Záviška](https://orcid.org/0000-0003-2221-2058), [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442), [Ondřej Mokrý](https://orcid.org/0000-0003-1806-5809)
+------------------------------------------------------------------------
+The letter can be viewed as the follow-up to the Audio Declipping Survey, focused on enhancing the performance of the audio declipping methods that produce solutions inconsistent in the reliable part.
+Preprint of the letter is available at https://arxiv.org/abs/2104.03074.
+
+### Quick Tutorial
+The source code is one m-file called "crossfaded_replace_reliable.m", which is stored in the "Replace_reliable" folder. 
+Before running this function, make sure the folder is in MATLAB path. 
+
+In the first step, run an arbitrary declipping algorithm that produces solutions inconsistent in the reliable part of the signal, such as:
+- Constrained Orthogonal Matching Pursuit (C-OMP), 
+- Social Sparsity with Empirical Wiener (SS EW), 
+- Social Sparsity with Persistent Empirical Wiener (SS PEW),
+- Compressed Sensing method minimizing ℓ1-norm (CSL1), 
+- Perceptual Compressed Sensing method minimizing ℓ1-norm (PCSL1), 
+- Parabola-Weighted Compressed Sensing method minimizing ℓ1-norm (PWCSL1),
+- Dictionary Learning approach (DL).
+
+The second step consists of replacing the reliable samples using the above-mentioned function.
+The default settings are the ones used in the experiments. 
+So, to reproduce the results from the letter, call
+```
+output = crossfaded_replace_reliable(x, xc, Mr)
+```
+where:
+- `x` is output from the declipping algorithm, i.e., vector of the reconstructed signal,
+- `xc` is a vector of the clipped signal,  
+- `Mr` is a logical vector of the reliable mask (has ones in the reliable positions).
+
+It is also possible to directly specify the parameters of the method by calling  
+```
+output = crossfaded_replace_reliable(x, xc, Mr, flag, w, transition_type, treat_short)
+```
+where:
+- `flag` specifies the position of the crossfading transition:
+    * `0` means the old traditional way of replacing all reliable samples (RR),
+    * `1` means a transition in the clipped part,
+    * `2` means a transition in the reliable part,
+    * `3` means a transition in both parts,
+- `w` determines the length of the crossfading transition in samples,
+- `transition_type` affects the type of the crossfade,
+    * `'linear'` uses the linear crossfade,
+    * `'soft'` uses the soft crossfade modeled using squared sine function, 
+- `treat_short` specifies the way of treating the segments that are shorter than `w`:
+    * `0` ignores the short segments,
+    * `1` replaces the short segments using the traditional (RR) way without crossfading,
+    * `2` uses the longest possible length of crossfade to fit the short segment. 
 
 --------------------------------------------------
-Pavel Záviška, Brno University of Technology, 2020
+Pavel Záviška, Brno University of Technology, 2021

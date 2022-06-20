@@ -19,7 +19,11 @@ end
 
 % compute shrinkage
 TF(isinf(TF)) = 0;
-Gs = 1 - TF.^(shrink.expo);
+if isfield(shrink, 'weights')
+    Gs = 1 - bsxfun(@times, TF.^(shrink.expo), shrink.weights);
+else    
+    Gs = 1 - TF.^(shrink.expo);
+end
 GGs = (Gs.*(Gs>0));
 
 if shrink.orth==1

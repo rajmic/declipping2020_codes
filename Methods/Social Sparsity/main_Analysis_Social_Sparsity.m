@@ -1,15 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%                                %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%      DECLIPPING MAIN FILE      %%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%         Social Sparsity        %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%    Analysis Social Sparsity    %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%                                %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% The implementation of the Social Sparsity Declipper was kindly provided
-% by Matthieu Kowalski.
-% The codes were then slightly edited to fit the common interface of the
-% declipping toolbox by
-% Pavel Záviška, Brno University of Technology, 2020
+% The implementation of the Analysis version of Social Sparsity Declipper.
+% Pavel Záviška, Brno University of Technology, 2022
 %
 % using toolbox LTFAT
 ltfatstart;
@@ -20,6 +17,7 @@ addpath(genpath('Evaluation_algorithms'))
 
 close all
 clear variables
+
 
 %% input file settings   
 % load audio-file
@@ -87,7 +85,7 @@ G_clip = dgtreal(data_clipped, g, a, M);
 gab.analysis = @(x) dgtreal(x,g,a,M);
 gab.synthesis = @(x) idgtreal(x,g,a,M,Ls);
 
-
+        
 %% Setting of the Shrinkage operator
 
 switch shrinkage
@@ -107,13 +105,10 @@ end
 if weighting == true
     shrink.weights = comp_weights(0, fs/2, floor(M/2)+1, fs/2, 2);
 end
+   
 
-Gdeclip = zeros(nf,nt);
-GdeclipZ = Gdeclip;
-
-        
-%% ISTA
-fprintf('Starting the ISTA algoritm\n')
+%% Loris-Verhoeven algorithm
+fprintf('Starting the Loris-Verhoeven algoritm\n')
 
 tic
 
@@ -125,51 +120,57 @@ iter_cnt = 0;
 dSDR_process = NaN(number_lambdas*inner_iterations, 1);
 data_rec = data_clipped;
 
-for lambda=logspace(-1,-4,number_lambdas)
-    shrink.lambda = lambda;
-    for k=1:inner_iterations
 
+x = data_rec;
+u = gab.analysis(data_rec);
+l = data_rec;
+
+tau = 1.5;
+sigma = 1/tau;
+rho = 1;
+
+for lambda=logspace(-1,-4,number_lambdas)
+    shrink.lambda_orig = lambda;
+    for k=1:inner_iterations
+        
         data_rec_old = data_rec;
         iter_cnt = iter_cnt + 1;
+        
+        % compute b (gradient of h)
+        r1 = zeros(Ls, 1);
+        r1(masks.Mr) = x(masks.Mr) - data_r(masks.Mr);
+        
+        r2 = zeros(Ls, 1);
+        r2(masks.Mh) = data_c(masks.Mh) - x(masks.Mh);
+        r2(masks.Ml) = data_c(masks.Ml) - x(masks.Ml);
+        
+        r2(abs(x)>theta) = 0;
+        r2 = -r2;
 
-        % forward step
-        GdeclipOLD = Gdeclip;
+        b = r1 + r2;
+        
+        % u update
+        uu = u + sigma*gab.analysis(x - tau*(b+l));
+        shrink.lambda = shrink.lambda_orig ./ sigma;
+        u_half = uu - sigma*gen_thresh(uu./sigma, shrink); % Moreau identity    
+        
+        % l update
+        l_half = gab.synthesis(u_half);
+        
+        % x,u,l updates // rho = (k-1)/(k+5)
+        x = x - rho * tau * (b + l_half);
+        u = u + rho * (u_half - u);
+        l = l + rho * (l_half - l);        
+        
 
-        xdeclipZ = gab.synthesis(GdeclipZ);
-
-        r1 = zeros(Ls,1);
-        r1(masks.Mr) = data_r(masks.Mr) - xdeclipZ(masks.Mr);
-
-        grad1 = -gab.analysis(r1);
-
-        r2 = zeros(Ls,1);
-        r2(masks.Mh) = data_c(masks.Mh) - xdeclipZ(masks.Mh);
-        r2(masks.Ml) = data_c(masks.Ml) - xdeclipZ(masks.Ml);
-
-        r2(abs(xdeclipZ)>theta) = 0;
-        grad2 = -gab.analysis(r2);
-
-
-        GdeclipZ = GdeclipZ - grad1 - grad2;
-
-
-        % thresholding step
-        Gdeclip = gen_thresh(GdeclipZ, shrink);
-
-
-        % relaxation step
-        GdeclipZ = Gdeclip + (k-1)/(k+5) * (Gdeclip - GdeclipOLD);
-
-
-
-        data_rec = gab.synthesis(Gdeclip);
+        data_rec = x;
         if norm(data_rec_old - data_rec) < delta
-            break
+           break
         end
-
 
         if verbose
             sdr_rec = sdr(data, data_rec);
+            dSDR_process(iter_cnt) = sdr_rec;
             fprintf('  lambda = %f -- it = %d -- SDR = %f -- dSDR = %f \n',lambda,k,sdr_rec,sdr_rec-inputSDR);
         end
 

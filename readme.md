@@ -1,7 +1,6 @@
 
-A Survey and an Extensive Evaluation of Popular Audio Declipping Methods
-========================================================================
-[Pavel Záviška](https://orcid.org/0000-0003-2221-2058), [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442), [Alexey Ozerov](https://orcid.org/0000-0002-7602-4610) and [Lucas Rencker](https://orcid.org/0000-0002-9332-6602)
+# A Survey and an Extensive Evaluation of Popular Audio Declipping Methods
+[Pavel Záviška](https://orcid.org/0000-0003-2221-2058), [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442), [Alexey Ozerov](https://orcid.org/0000-0002-7602-4610), and [Lucas Rencker](https://orcid.org/0000-0002-9332-6602)
 ------------------------------------------------------------------------
 
 
@@ -9,12 +8,12 @@ This readme file describes the MATLAB toolbox accompanying the article from the 
 Published version of the article is available at https://ieeexplore.ieee.org/document/9281027. \
 Postprint is also available at https://arxiv.org/abs/2007.07663.
 
-Along with the audio declipping survey, the toolbox also contains source codes to the letter called Audio declipping performance enhancement via crossfading. 
-See details [below](#Audio Declipping Performance Enhancement via Crossfading).
+Along with the audio declipping survey, the toolbox also contains source codes to the follow-up article called *Audio declipping performance enhancement via crossfading* (see details [below](#audio-declipping-performance-enhancement-via-crossfading)), 
+and a new analysis Social Sparsity Declipper introduced in the conference paper called *Analysis Social Sparsity Audio Declipper* (see details [below](#analysis-social-sparsity-audio-declipper)). 
 
 ### Requirements
-The code has been developed in MATLAB version R2019b and has been tested in R2019b and R2020a. 
-Several methods rely on the LTFAT toolbox (version 2.4.0 used) and Constrained OMP (C-OMP) relies on the CVX toolbox (version 2.2).
+The code has been developed in MATLAB version R2019b and has been tested in R2019b, R2020a, and R2022a.
+Several methods rely on the LTFAT toolbox (version 2.4.0 used) and Constrained OMP (C-OMP) algorithm relies on the CVX toolbox (version 2.2).
 
 ### Quick Tutorial
 To use this declipping toolbox, just download all the files, add them to the MATLAB path and make sure that the LTFAT toolbox and CVX toolbox are properly installed.
@@ -120,12 +119,12 @@ vol.&nbsp;34, no.&nbsp;2, pp.&nbsp;317&#8211;330, 1986.
 
 --------------------------------------------------
 
-Audio Declipping Performance Enhancement via Crossfading  
-========================================================================
-[Pavel Záviška](https://orcid.org/0000-0003-2221-2058), [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442), [Ondřej Mokrý](https://orcid.org/0000-0003-1806-5809)
+# Audio Declipping Performance Enhancement via Crossfading
+[Pavel Záviška](https://orcid.org/0000-0003-2221-2058), [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442), and [Ondřej Mokrý](https://orcid.org/0000-0003-1806-5809)
 ------------------------------------------------------------------------
-The letter can be viewed as the follow-up to the Audio Declipping Survey, focused on enhancing the performance of the audio declipping methods that produce solutions inconsistent in the reliable part.
-Preprint of the letter is available at https://arxiv.org/abs/2104.03074.
+This article can be viewed as the follow-up to the Audio Declipping Survey, focused on enhancing the performance of the audio declipping methods that produce solutions inconsistent in the reliable part. \
+Published version of the article is available at https://www.sciencedirect.com/science/article/pii/S0165168421004023. \
+Preprint of the article is available at https://arxiv.org/abs/2104.03074.
 
 ### Quick Tutorial
 The source code is one m-file called "crossfaded_replace_reliable.m", which is stored in the "Replace_reliable" folder. 
@@ -171,4 +170,21 @@ where:
     * `2` uses the longest possible length of crossfade to fit the short segment. 
 
 --------------------------------------------------
-Pavel Záviška, Brno University of Technology, 2021
+
+# Analysis Social Sparsity Audio Declipper
+[Pavel Záviška](https://orcid.org/0000-0003-2221-2058) and [Pavel Rajmic](https://orcid.org/0000-0002-8381-4442)
+------------------------------------------------------------------------
+
+This conference paper introduces an analysis variant of the popular Social Sparsity Audio declipper using the Loris&ndash;Verhoeven optimization algorithm. \
+The preprint of the paper can be found at https://arxiv.org/abs/2205.10215.
+
+Source m-files are appended to the existing directory structure and can be found in the "Methods/Social Sparsity" directory.
+The proposed algorithm is implemented in "main_Analysis_Social_Sparsity.m".
+
+Apart from the proposed analysis variant of the algorithm itself, a newly added feature is also weighting of the time-frequency coefficients (similar to l1 relaxation algorithms), which is available for both the synthesis and analysis variants of the Social Sparsity algorithm. 
+The weighting can be enabled by setting the `weighting` variable to `true`. The default option is the parabola weights, which quadratically grow with frequency and therefore penalize higher frequencies. These weights are computed in the function "comp_weights". 
+Nonetheless, it is possible to use any type of weights.
+
+
+--------------------------------------------------
+Pavel Záviška, Brno University of Technology, 2022

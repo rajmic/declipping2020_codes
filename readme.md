@@ -176,7 +176,8 @@ where:
 ------------------------------------------------------------------------
 
 This conference paper introduces an analysis variant of the popular Social Sparsity Audio declipper using the Loris&ndash;Verhoeven optimization algorithm. \
-The preprint of the paper can be found at https://arxiv.org/abs/2205.10215.
+Published version of the paper is available at https://ieeexplore.ieee.org/document/9851269. \
+The postprint of the paper can be found at https://arxiv.org/abs/2205.10215.
 
 Source m-files are appended to the existing directory structure and can be found in the "Methods/Social Sparsity" directory.
 The proposed algorithm is implemented in "main_Analysis_Social_Sparsity.m".

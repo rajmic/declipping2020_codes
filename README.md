@@ -65,7 +65,7 @@ P. Záviška, P. Rajmic, A. Ozerov and L. Rencker,
 vol.&nbsp;15, no.&nbsp;1, pp.&nbsp;5&#8211;24, Jan.&nbsp;2021, doi: 10.1109/JSTSP.2020.3042071.
 
 ### License
-The code of this toolbox is distributed under the terms of the GNU Public License version 3 (http://www.gnu.org/licenses/gpl.txt).
+The code of this toolbox is distributed under the terms of the [GNU Public License version 3](https://github.com/rajmic/declipping2020_codes/blob/master/LICENSE).
 
 ### References
 - A. Adler, V. Emiya, M. Jafari, M. Elad, R. Gribonval, and M. Plumbley,
